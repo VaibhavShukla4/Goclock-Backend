@@ -36,9 +36,7 @@ exports.sendResponse = async (req, res) => {
       orderId,
       price,
     });
-
     await response.save();
-
     res.status(200).json({ message: "Response sent successfully" });
   } catch (error) {
     res
@@ -68,10 +66,8 @@ exports.registerUser = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "email already exists" });
     }
-
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-
     // Create a new user
     const user = new User({
       email,
