@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 exports.sendMessage = async (req, res) => {
   try {
     const { orderId, to, from, quantity, address, transporter } = req.body;
-    // console.log(req.body);
     const message = new MessageModel({
       orderId,
       to,
@@ -16,9 +15,7 @@ exports.sendMessage = async (req, res) => {
       address,
       transporter,
     });
-
     await message.save();
-
     res.status(200).json({ message: "Message sent successfully" });
   } catch (error) {
     res
