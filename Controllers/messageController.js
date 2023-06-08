@@ -6,8 +6,7 @@ const jwt = require("jsonwebtoken");
 // Manufacturer sends a message
 exports.sendMessage = async (req, res) => {
   try {
-    const { orderId, to, from, quantity, address, transporter, content } =
-      req.body;
+    const { orderId, to, from, quantity, address, transporter } = req.body;
     const message = new MessageModel({
       orderId,
       to,
@@ -15,7 +14,6 @@ exports.sendMessage = async (req, res) => {
       quantity,
       address,
       transporter,
-      content,
     });
     await message.save();
     res.status(200).json({ message: "Message sent successfully" });
@@ -56,6 +54,17 @@ exports.getMessages = async (req, res) => {
   }
 };
 
+// Get all response
+exports.getResponse = async (req, res) => {
+  try {
+    const response = await ResponseModel.find();
+    res.status(200).json({ response });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving the response" });
+  }
+};
 exports.registerUser = async (req, res) => {
   try {
     const { email, password, role } = req.body;

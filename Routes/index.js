@@ -7,5 +7,6 @@ router.post("/transporter/response", messageController.sendResponse);
 router.post("/signup", messageController.registerUser);
 router.post("/loginUser", messageController.loginUser);
 router.get("/messages", messageController.getMessages);
+router.get("/response", messageController.getResponse);
 
 module.exports = router;
