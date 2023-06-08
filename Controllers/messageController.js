@@ -62,7 +62,7 @@ exports.getResponse = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ error: "An error occurred while retrieving the messages" });
+      .json({ error: "An error occurred while retrieving the response" });
   }
 };
 exports.registerUser = async (req, res) => {
