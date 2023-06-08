@@ -8,6 +8,7 @@ const messageSchema = new mongoose.Schema({
   quantity: { type: Number },
   address: { type: String },
   transporter: { type: String },
+  content: { type: String },
 });
 
 // Create the Message model using the message schema
