@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const responseSchema = new mongoose.Schema({
   orderId: { type: String },
   price: { type: Number },
+  content: { type: String },
 });
 
 // Create the Response model using the response schema
