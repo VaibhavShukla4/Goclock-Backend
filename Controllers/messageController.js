@@ -27,11 +27,12 @@ exports.sendMessage = async (req, res) => {
 // Transporter sends a response
 exports.sendResponse = async (req, res) => {
   try {
-    const { orderId, price } = req.body;
+    const { orderId, price, content } = req.body;
     console.log(req.body);
     const response = new ResponseModel({
       orderId,
       price,
+      content,
     });
     await response.save();
     res.status(200).json({ message: "Response sent successfully" });
